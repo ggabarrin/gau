@@ -14,6 +14,7 @@ type Header struct {
 	Key   string
 	Value string
 }
+<<<<<<< HEAD:pkg/httpclient/client.go
 
 func MakeRequest(c *fasthttp.Client, url string, maxRetries uint, timeout uint, headers ...Header) ([]byte, error) {
 	var (
@@ -62,6 +63,19 @@ func doReq(c *fasthttp.Client, req *fasthttp.Request, timeout uint) ([]byte, err
 	}
 
 	return resp.Body(), nil
+=======
+type Config struct {
+	Threads           uint
+	Verbose           bool
+	MaxRetries        uint
+	IncludeSubdomains bool
+	Client            *http.Client
+	Providers         []string
+	Blacklist         map[string]struct{}
+	Output            string
+	JSON              bool
+	MaxPages          uint
+>>>>>>> ccfc0ee (Add flag for max number of pages to parse):providers/provider.go
 }
 
 func getUserAgent() string {
